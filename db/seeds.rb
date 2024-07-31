@@ -1,21 +1,26 @@
-puts "Cadastrando moedas..."
+spinner = TTY::Spinner.new("[:spinner] Cadastrando moedas...")
+spinner.auto_spin
 
-Coin.create!(
-  description: "Bitcoin",
-  acronym: "BTC",
-  url_image: "https://static.vecteezy.com/system/resources/previews/008/505/801/original/bitcoin-logo-color-illustration-png.png"
-)
+coins = [
+          {
+            description: "Bitcoin",
+            acronym: "BTC",
+            url_image: "https://static.vecteezy.com/system/resources/previews/008/505/801/original/bitcoin-logo-color-illustration-png.png"
+          },
+          {
+            description: "Ethereum",
+            acronym: "ETH",
+            url_image: "https://cryptologos.cc/logos/ethereum-eth-logo.png"
+          },
+          {
+            description: "Ripple",
+            acronym: "XRP",
+            url_image: "https://s2.coinmarketcap.com/static/img/coins/200x200/52.png"
+          }
+        ]
 
-Coin.create!(
-  description: "Ethereum",
-  acronym: "ETH",
-  url_image: "https://cryptologos.cc/logos/ethereum-eth-logo.png"
-)
+coins.each do |coin|
+  Coin.find_or_create_by!(coin)
+end
 
-Coin.create!(
-  description: "Ripple",
-  acronym: "XRP",
-  url_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc0fro0-x5gSJZDO5fSWWcM_c56zTAPpr76z2cdWwSxA&s"
-)
-
-puts "Moedas cadastradas com sucesso!"
+spinner.success("Moedas cadastradas com sucesso!")
