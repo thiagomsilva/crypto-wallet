@@ -1,3 +1,3 @@
 class MiningType < ApplicationRecord
-  has_many :coin
+  has_many :coins
 end

@@ -5,8 +5,8 @@ namespace :dev do
       spinner_messages("Apagando o banco de dados...") { %x(rails db:drop) }
       spinner_messages("Criando o banco de dados...") { %x(rails db:create) }
       spinner_messages("Executando as migrações...") { %x(rails db:migrate) }
-      %x(rails dev:add_coins)
       %x(rails dev:add_mining_types)
+      %x(rails dev:add_coins)
     else
       puts "Este comando só pode ser executado em ambiente de desenvolvimento"
     end
@@ -19,17 +19,20 @@ namespace :dev do
                 {
                   description: "Bitcoin",
                   acronym: "BTC",
-                  url_image: "https://static.vecteezy.com/system/resources/previews/008/505/801/original/bitcoin-logo-color-illustration-png.png"
+                  url_image: "https://static.vecteezy.com/system/resources/previews/008/505/801/original/bitcoin-logo-color-illustration-png.png",
+                  mining_type: MiningType.find_by(acronym: "PoW")
                 },
                 {
                   description: "Ethereum",
                   acronym: "ETH",
-                  url_image: "https://cryptologos.cc/logos/ethereum-eth-logo.png"
+                  url_image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+                  mining_type: MiningType.all.sample
                 },
                 {
                   description: "Ripple",
                   acronym: "XRP",
-                  url_image: "https://s2.coinmarketcap.com/static/img/coins/200x200/52.png"
+                  url_image: "https://s2.coinmarketcap.com/static/img/coins/200x200/52.png",
+                  mining_type: MiningType.all.sample
                 }
               ]
 
