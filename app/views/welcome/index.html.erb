@@ -1,17 +1,11 @@
-<h1>Seja Bem-vindo!</h1>
+<h1> <%= I18n.t("hello") %> </h1>
 
-<p>O idioma usado na aplicação é: <strong><%= locale(I18n.locale) %></strong> </p>
+<p>Idioma da aplicação: <strong><%= I18n.t("actual_locale") %></strong> </p>
 
-<p><strong>Data:</strong> <%= Date.today %> </p>
+<p>Data de hoje: <strong><%= l(Date.today) %></strong> </p>
 
 <%= render "menu" %>
 
 <p>
-  O ambiente que você está é: <strong><%= ambiente_rails %></strong>
-</p>
-<p>
-  O seu nome é: <strong><%= @meu_nome %></strong>
-</p>
-<p>
-  O curso é: <strong><%= @meu_curso %></strong>
+  O ambiente que você está: <strong><%= ambiente_rails %></strong>
 </p>

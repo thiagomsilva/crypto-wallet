@@ -1,21 +1,21 @@
 <div id="<%= dom_id coin %>">
   <p>
-    <strong>Descrição:</strong>
+    <strong><%= Coin.human_attribute_name(:description) %>:</strong>
     <%= coin.description %>
   </p>
 
   <p>
-    <strong>Sigla:</strong>
+    <strong><%= Coin.human_attribute_name(:acronym) %>:</strong>
     <%= coin.acronym %>
   </p>
 
   <p>
-    <strong>Url da Imagem:</strong>
+    <strong><%= Coin.human_attribute_name(:url_image) %>:</strong>
     <%= image_tag coin.url_image, width: 20, height: 20 %>
   </p>
 
    <p>
-    <strong>Tipo de Mineração:</strong>
+    <strong><%= Coin.human_attribute_name(:mining_type) %>:</strong>
     <%= coin.mining_type.description %>
   </p>
 
