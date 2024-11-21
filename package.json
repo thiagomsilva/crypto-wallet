@@ -1,0 +1,12 @@
+{
+  "name": "crypto_wallet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:thiagomsilva/crypto-wallet.git",
+  "author": "Thiago Magalhães <thiagomagalhaes2004@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "notify-js-legacy": "^0.4.1"
+  }
+}
